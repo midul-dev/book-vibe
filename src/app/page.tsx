@@ -1,9 +1,12 @@
-import React from 'react';
+import React from "react";
+import Hero from "@/components/homePage/Hero";
+import Books from "@/components/homePage/Books";
 
-const HomePage = () => {
+const HomePage = async () => {
   return (
     <div>
-      <h1>home</h1>
+      <Hero />
+      <Books />
     </div>
   );
 };

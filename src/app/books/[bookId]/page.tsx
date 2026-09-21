@@ -1,10 +1,9 @@
+import AddToReadButton from "@/components/AddToReadButton";
+import getBooks from "@/lib/BooksData";
+import { IBook } from "@/types/bookTypes";
 import Image from "next/image";
 import React from "react";
 
-const getBooks = async () => {
-  const res = await fetch("http://localhost:3000/booksData.json");
-  return res.json();
-};
 const BooksDetailPage = async ({
   params,
 }: {
@@ -13,7 +12,7 @@ const BooksDetailPage = async ({
   const { bookId } = await params;
   const books = await getBooks();
   const book = books.find(
-    (book: { bookId: string }) => Number(book.bookId) === Number(bookId),
+    (book: IBook) => Number(book.bookId) === Number(bookId),
   );
   console.log(book);
 
@@ -73,7 +72,7 @@ const BooksDetailPage = async ({
 
             {/* Tags */}
             <div className="mt-6 flex flex-wrap gap-2">
-              {book.tags.map((tag, index) => (
+              {book.tags.map((tag: string, index: number) => (
                 <span
                   key={index}
                   className="rounded-full bg-emerald-50 px-4 py-2 text-sm font-medium text-emerald-700"
@@ -118,9 +117,7 @@ const BooksDetailPage = async ({
                 Add to Wishlist
               </button>
 
-              <button className="btn rounded-xl border border-slate-300 bg-white px-7 text-slate-700 hover:bg-slate-50">
-                Read
-              </button>
+              <AddToReadButton book={book} />
             </div>
           </div>
         </div>

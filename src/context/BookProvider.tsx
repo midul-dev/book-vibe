@@ -6,8 +6,9 @@ export const BookContext = createContext({});
 
 const BookProvider = ({ children }: { children: ReactNode }) => {
   const [readBooks, setReadBooks] = useState<IBook[]>([]);
+  const [wishList, setWishList, ] = useState<IBook[]>([]);
 
-  const sharedBooks = { readBooks, setReadBooks };
+  const sharedBooks = { readBooks, setReadBooks, wishList, setWishList };
 
   return (
     <BookContext.Provider value={sharedBooks}>{children}</BookContext.Provider>

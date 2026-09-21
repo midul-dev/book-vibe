@@ -1,4 +1,5 @@
 import AddToReadButton from "@/components/AddToReadButton";
+import AddToWishlistButton from "@/components/AddToWishlistButton";
 import getBooks from "@/lib/BooksData";
 import { IBook } from "@/types/bookTypes";
 import Image from "next/image";
@@ -113,9 +114,7 @@ const BooksDetailPage = async ({
 
             {/* Buttons */}
             <div className="mt-8 flex flex-wrap gap-3">
-              <button className="btn rounded-xl border-0 bg-emerald-600 px-7 text-white shadow-md hover:bg-emerald-700">
-                Add to Wishlist
-              </button>
+              <AddToWishlistButton book={book} />
 
               <AddToReadButton book={book} />
             </div>

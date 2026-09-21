@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import React from 'react';
 import heroImage from '../../assets/pngwing 1.png';
+import Link from 'next/link';
 
 
 const Hero = () => {
@@ -28,7 +29,7 @@ const Hero = () => {
       </p>
 
       <button className="btn mt-7 rounded-xl bg-emerald-600 px-7 text-white shadow-md transition-all duration-300 hover:-translate-y-1 hover:bg-emerald-700 hover:shadow-lg">
-        View The List
+        <Link href={"/books"}>View The List</Link>
       </button>
     </div>
 

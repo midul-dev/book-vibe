@@ -1,9 +1,13 @@
+'use client';
 import { IBook } from "@/types/bookTypes";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import RemoveButton from "./RemoveButton";
+import { FaTrashArrowUp } from "react-icons/fa6";
 
-const ListedBooksCard = ({ book }: { book: IBook }) => {
+
+const ListedBooksCard = ({ book, onRemove }: { book: IBook, onRemove: (book: IBook) => void }) => {
   return (
     <div
       key={book.bookId}
@@ -83,13 +87,13 @@ const ListedBooksCard = ({ book }: { book: IBook }) => {
             >
               View Details
             </Link>
-
-            <button
-              className="btn btn-circle border-0 bg-red-50 text-red-500 hover:bg-red-100"
-              title="Remove from reading list"
-            >
-              🗑
-            </button>
+<button
+        className="btn btn-circle border-0 bg-red-50 text-red-500 hover:bg-red-100 hover:scale-110 transition-transform"
+        title="Remove from reading list"
+        onClick={() => onRemove(book)}
+      >
+        <FaTrashArrowUp />
+      </button>
           </div>
         </div>
       </div>

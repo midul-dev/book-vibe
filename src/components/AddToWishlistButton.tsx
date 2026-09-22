@@ -2,6 +2,7 @@
 import { BookContext } from '@/context/BookProvider';
 import { IBook } from '@/types/bookTypes';
 import React, { Dispatch, SetStateAction, useContext } from 'react';
+import { Bounce, toast } from 'react-toastify';
 
 const AddToWishlistButton = ({book}:{book:IBook}) => {
     const { wishList, setWishList } = useContext(BookContext) as {
@@ -13,6 +14,17 @@ const AddToWishlistButton = ({book}:{book:IBook}) => {
       );
       const handleAddToWished = () => {
         setWishList([...wishList, book]);
+        toast.success(`${book.bookName} added to your wishlist!`, {
+              position: "top-right",
+              autoClose: 2000,
+              hideProgressBar: false,
+              closeOnClick: false,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "light",
+              transition: Bounce,
+            });
       };
     
       return (

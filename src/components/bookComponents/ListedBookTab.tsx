@@ -5,6 +5,7 @@ import { BookContext } from "@/context/BookProvider";
 import React, { useContext } from "react";
 import ListedBooksCard from "../ListedBooksCard";
 import { IBook } from "@/types/bookTypes";
+import { Bounce, toast } from "react-toastify";
 
 interface ReadBookContext {
   readBooks: IBook[];
@@ -21,9 +22,31 @@ const ListedBookTab = () => {
   };
   const handleRemoveReadBook = (book: IBook) => {
     setReadBooks(readBooks.filter((b) => b.bookId !== book.bookId));
+    toast.error(`${book.bookName} removed from your reading list!`, {
+      position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      transition: Bounce,
+    });
   };
   const handleRemoveWishList = (book: IBook) => {
     setWishList(wishList.filter((b) => b.bookId !== book.bookId));
+    toast.error(`${book.bookName} removed from your wishlist!`, {
+      position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      transition: Bounce,
+    });
   };
   return (
     <div>

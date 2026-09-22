@@ -1,3 +1,4 @@
+'use client';
 import Image from 'next/image';
 import React from 'react';
 import heroImage from '../../assets/pngwing 1.png';
@@ -5,6 +6,11 @@ import Link from 'next/link';
 
 
 const Hero = () => {
+
+  const handleHomeBook = () => {
+    const homeBook = document.getElementById("homeBook");
+    homeBook?.scrollIntoView({ behavior: "smooth" });
+  };
     return (
 <section className="container mx-auto w-full px-4 pt-10">
   <div className="relative grid min-h-[450px] grid-cols-1 items-center overflow-hidden rounded-3xl bg-gradient-to-br from-emerald-50 via-white to-amber-50 px-8 py-12 shadow-lg md:grid-cols-2 md:px-14 lg:px-20">
@@ -28,8 +34,8 @@ const Hero = () => {
         releases. Find your next great read today.
       </p>
 
-      <button className="btn mt-7 rounded-xl bg-emerald-600 px-7 text-white shadow-md transition-all duration-300 hover:-translate-y-1 hover:bg-emerald-700 hover:shadow-lg">
-        <Link href={"/books"}>View The List</Link>
+      <button onClick={handleHomeBook} className="btn mt-7 rounded-xl bg-emerald-600 px-7 text-white shadow-md transition-all duration-300 hover:-translate-y-1 hover:bg-emerald-700 hover:shadow-lg">
+        View The List
       </button>
     </div>
 

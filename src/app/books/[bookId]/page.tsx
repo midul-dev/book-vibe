@@ -3,6 +3,7 @@ import AddToWishlistButton from "@/components/AddToWishlistButton";
 import getBooks from "@/lib/BooksData";
 import { IBook } from "@/types/bookTypes";
 import Image from "next/image";
+import { notFound } from "next/navigation";
 import React from "react";
 
 const BooksDetailPage = async ({
@@ -15,7 +16,10 @@ const BooksDetailPage = async ({
   const book = books.find(
     (book: IBook) => Number(book.bookId) === Number(bookId),
   );
-  console.log(book);
+
+  if (!book) {
+    notFound();
+  }
 
   return (
     <div className="container mx-auto px-4 py-10">

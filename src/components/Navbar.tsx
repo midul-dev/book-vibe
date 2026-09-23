@@ -16,7 +16,7 @@ const Navbar = () => {
     </>
   );
   return (
-      <div className="navbar bg-base-100 shadow-sm ">
+      <div className="navbar bg-base-100 shadow-sm sticky top-0 z-50">
   <div className="container mx-auto flex w-full items-center ">
         <div className="navbar-start">
           <div className="dropdown">
@@ -52,11 +52,11 @@ const Navbar = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{navMenu}</ul>
         </div>
-        <div className="navbar-end flex gap-2">
-          <Link href="/login" className="btn btn-success rounded-lg">
+        <div className="navbar-end flex gap-1 md:gap-2">
+          <Link href="/login" className="text-sm md:btn md:btn-success md:rounded-lg ">
             Login
           </Link>
-          <Link href="/login" className="btn btn-secondary rounded-lg">
+          <Link href="/login" className=" text-sm border py-1 px-2 text-pink-600 rounded-lg md:btn md:btn-secondary md:rounded-lg">
             Sign Up
           </Link>
         </div>
